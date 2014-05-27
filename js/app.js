@@ -133,7 +133,7 @@
 	
 	var r = Parse.Router.extend({
 		routes: {
-			'': 'login',
+			'': 'index',
 			'peer-evaluation': 'evaluation',
 			'login/*redirect': 'login',
 		},
