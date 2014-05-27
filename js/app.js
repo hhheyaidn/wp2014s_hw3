@@ -154,23 +154,23 @@
 					else{
 						var s=i.toJSON().evaluations
 						}
-						document.getElementById("content").innerHTML=e.evaluationView(s);
-						document.getElementById("evaluationForm-submit").value=i===undefined?"送出表單":"修改表單";
-						document.getElementById("evaluationForm").addEventListener("submit",function(){
-							for(var o=0;o<s.length;o++){
-								for(var u=0;u<s[o].scores.length;u++){
-									var a=document.getElementById("stu"+s[o].StudentId+"-q"+u);
-									var f=a.options[a.selectedIndex].value;s[o].scores[u]=f
-								}
+					document.getElementById("content").innerHTML=templates.evaluationView(s);
+					document.getElementById("evaluationForm-submit").value=i===undefined?"送出表單":"修改表單";
+					document.getElementById("evaluationForm").addEventListener("submit",function(){
+						for(var o=0;o<s.length;o++){
+							for(var u=0;u<s[o].scores.length;u++){
+								var a=document.getElementById("stu"+s[o].StudentId+"-q"+u);
+								var f=a.options[a.selectedIndex].value;s[o].scores[u]=f
 							}
-							if(i===undefined){
-								i=new t;
-								i.set("user",n);
-								i.setACL(r)}console.log(s);
-								i.set("evaluations",s);
-								i.save(null,{
-									success:function(){
-										document.getElementById("content").innerHTML=e.updateSuccessView()
+						}
+						if(i===undefined){
+							i=new t;
+							i.set("user",n);
+							i.setACL(r)}console.log(s);
+							i.set("evaluations",s);
+							i.save(null,{
+								success:function(){
+									document.getElementById("content").innerHTML=e.updateSuccessView()
 									},
 									error:function(){
 
