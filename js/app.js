@@ -14,6 +14,7 @@
   
   var t={
 	loginRequiredView:function(e){
+	alert(55);
 		return function(){
 			var t=Parse.User.current();
 			if(t){
