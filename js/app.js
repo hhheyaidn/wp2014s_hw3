@@ -120,6 +120,9 @@
     },
     evaluationView: function(){
       // 基本上和上課範例購物車的函數很相似，這邊會用Parse DB
+	  var currentUser = Parse.User.current();
+	  
+	  document.getElementById('content').innerHTML = templates.evaluationView(_Memberlist);
      // 問看看Parse有沒有這個使用者之前提交過的peer review物件(
      // 沒有的話: 從TAHelp生一個出來(加上scores: [‘0’, ‘0’, ‘0’, ‘0’]屬性存分數並把自己排除掉)
      // 把peer review物件裡的東西透過版型印到瀏覽器上();
