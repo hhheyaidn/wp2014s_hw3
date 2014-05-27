@@ -43,9 +43,9 @@
         });
 		
 	  document.getElementById('form-signup-student-id').addEventListener('keyup', function(){
-          var form_signup_student_id = document.getElementById('form-signup-student-id');
-          var message = (TAHelp.getMemberlistOf(form_signup_studen_id)==false) ? '此學號不在修課名單內，請重試。' : '';
-          document.getElementById('form-signup-message').innerHTML = message;           
+          var message = (TAHelp.getMemberlistOf(this.value)==false) ? '此學號不在修課名單內，請重試。' : '';
+          document.getElementById('form-signup-message').innerHTML = message;  
+		  document.getElementById('form-signup-message').style.display="block";
         });
 	 
      // 綁定註冊表單的密碼檢查事件(); // 參考上課範例
