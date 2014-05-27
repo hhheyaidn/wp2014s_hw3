@@ -44,7 +44,7 @@
 		
 	  document.getElementById('form-signup-student-id').addEventListener('keyup', function(){
           var form_signup_student_id = document.getElementById('form-signup-student-id');
-          var message = (TAHelp.getMemberlistOf(form_signup_studen_id.value)==false) ? '此學號不在修課名單內，請重試。' : '';
+          var message = (TAHelp.getMemberlistOf(form_signup_studen_id)==false) ? '此學號不在修課名單內，請重試。' : '';
           document.getElementById('form-signup-message').innerHTML = message;           
         });
 	 
