@@ -34,19 +34,24 @@
      // 綁定登入表單的學號檢查事件(); // 可以利用TAHelp物件
      // 綁定註冊表單的學號檢查事件(); // 可以利用TAHelp物件
 	 
-	 
+	  var message = '此學號不在修課名單內，請重試。';
+	  document.getElementById('form-signin-message').innerHTML = message;
+	  document.getElementById('form-signup-message').innerHTML = message;
+	  
 	  document.getElementById('form-signin-student-id').addEventListener('keyup', function(){
-		if(TAHelp.getMemberlistOf(this.value)==false){
-          var message = '此學號不在修課名單內，請重試。';
-			document.getElementById('form-signin-message').innerHTML = message;  
+		if(TAHelp.getMemberlistOf(this.value)==false){	  
 			document.getElementById('form-signin-message').style.display="block";
 		  }
-        });
+		 else
+			document.getElementById('form-signin-message').style.display="none";
+			});
 		
 	  document.getElementById('form-signup-student-id').addEventListener('keyup', function(){
-          var message = (TAHelp.getMemberlistOf(this.value)==false) ? '此學號不在修課名單內，請重試。' : '';
-          document.getElementById('form-signup-message').innerHTML = message;  
-		  document.getElementById('form-signup-message').style.display="block";
+		if(TAHelp.getMemberlistOf(this.value)==false){	  
+			document.getElementById('form-signup-message').style.display="block";
+		  }
+		 else
+			document.getElementById('form-signup-message').style.display="none";
         });
 	 
      // 綁定註冊表單的密碼檢查事件(); // 參考上課範例
@@ -81,8 +86,11 @@
           var singupForm_password = document.getElementById('form-signup-password');
           var message = (this.value !== singupForm_password.value) ? '密碼不一致，請再確認一次。' : '';
           document.getElementById('form-signup-message').innerHTML = message;
-		  document.getElementById('form-signup-message').style.display="block";
-        });
+		  if(this.value !== singupForm_password.value)
+			document.getElementById('form-signup-message').style.display="block";
+          else
+			document.getElementById('form-signup-message').style.display="none";
+		});
         // Signup Function binding, provided by Parse SDK.
         document.getElementById('form-signup').addEventListener('submit', function(){
           var user = new Parse.User();
