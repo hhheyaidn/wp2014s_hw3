@@ -81,6 +81,7 @@
       // What to do after signin / signup is successfully performed.
       var postAction = function(){
         handler.navbar();
+		alert(111);
         window.location.hash = t ? t : '';
       }
       
