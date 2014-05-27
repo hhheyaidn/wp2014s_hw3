@@ -30,7 +30,7 @@
 	  document.getElementById("logoutButton").addEventListener("click",function(){
 		Parse.User.logOut();
 		handler.navbar();
-		windows.location.hash="login/"
+		window.location.hash="login/"
 		})
     },
     loginView: function(){
