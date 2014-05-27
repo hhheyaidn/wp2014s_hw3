@@ -14,11 +14,9 @@
   
   var t={
 	loginRequiredView:function(e){
-	alert(55);
 		return function(){
 			var t=Parse.User.current();
 			if(t){
-			alert(0);
 				e()
 			}
 			else{
@@ -81,7 +79,6 @@
       // What to do after signin / signup is successfully performed.
       var postAction = function(){
         handler.navbar();
-		alert(111);
         window.location.hash = t ? t : '';
       }
       
@@ -93,13 +90,11 @@
         document.getElementById('form-signin').addEventListener('submit', function(){
           Parse.User.logIn(document.getElementById('form-signin-student-id').value,
               document.getElementById('form-signin-password').value, {
-            success: function(user) {
-			
+            success: function(currentUser) {
               // Do stuff after successful login.
               postAction();
             },
             error: function(user, error) {
-			alert(222);
               // The login failed. Check error to see why.
             }
           }); 
@@ -136,7 +131,6 @@
 	 
     },
 	evaluationView:t.loginRequiredView(function(){
-	alert(2);
 			var t=Parse.Object.extend("Evaluation");
 			var n=Parse.User.current();
 			var r=new Parse.ACL;
