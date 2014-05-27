@@ -67,7 +67,7 @@
       var postAction = function(){
         handler.navbar();
 		handler.evaluationView();
-        window.location.hash = (redirect) ? redirect : '';
+        
       }
       
       if (currentUser) {
