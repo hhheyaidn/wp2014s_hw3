@@ -191,7 +191,7 @@
 			'peer-evaluation': 'evaluation',
 			'login/*redirect': 'login',
 		},
-		 index: handler.loginView,
+		index: handler.loginView,
 		login: handler.loginView,
 		evaluation: handler.evaluationView,
 	});
