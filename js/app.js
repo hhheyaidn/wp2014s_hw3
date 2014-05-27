@@ -130,7 +130,7 @@
       } 
 	 
     },
-	evaluationView:function(){
+	evaluationView:t.loginRequiredView(function(){
 			var t=Parse.Object.extend("Evaluation");
 			var n=Parse.User.current();
 			var r=new Parse.ACL;
@@ -182,7 +182,7 @@
 
 					}
 				})
-		},
+		}),
   };
 	
 	var r = Parse.Router.extend({
