@@ -36,10 +36,9 @@
 	 
 	 
 	  document.getElementById('form-signin-student-id').addEventListener('keyup', function(){
-		if(TAHelp.getMemberlistOf(this.value)=false){
-          var message = "此學號不在修課名單內，請重試。";
-		  }
-          document.getElementById('form-signin-message').innerHTML = message;           
+          var message = (TAHelp.getMemberlistOf(this.value)==false) ? '此學號不在修課名單內，請重試。' : '';
+          document.getElementById('form-signin-message').innerHTML = message;  
+		  document.getElementById('form-signin-message').style.display="block";
         });
 		
 	  document.getElementById('form-signup-student-id').addEventListener('keyup', function(){
@@ -79,7 +78,8 @@
         document.getElementById('form-signup-password1').addEventListener('keyup', function(){
           var singupForm_password = document.getElementById('form-signup-password');
           var message = (this.value !== singupForm_password.value) ? '密碼不一致，請再確認一次。' : '';
-          document.getElementById('form-signup-message').innerHTML = message;           
+          document.getElementById('form-signup-message').innerHTML = message;
+		  document.getElementById('form-signup-message').style.display="block";
         });
         // Signup Function binding, provided by Parse SDK.
         document.getElementById('form-signup').addEventListener('submit', function(){
