@@ -27,6 +27,11 @@
 	    document.getElementById("evaluationButton").style.display="none";
 	    document.getElementById("logoutButton").style.display="none";
       }
+	  document.getElementById("logoutButton").addEventListener("click",function(){
+		Parse.User.logOut();
+		handler.navbar();
+		windows.location.hash="login/"
+		})
     },
     loginView: function(){
 	  document.getElementById('content').innerHTML = templates.loginView();
@@ -60,8 +65,8 @@
 	  var currentUser = Parse.User.current();
       // What to do after signin / signup is successfully performed.
       var postAction = function(){
-        handlers.navbar();
-		handlers.evaluationView();
+        handler.navbar();
+		handler.evaluationView();
         window.location.hash = (redirect) ? redirect : '';
       }
       
