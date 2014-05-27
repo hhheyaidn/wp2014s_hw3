@@ -130,7 +130,7 @@
       } 
 	 
     },
-	evaluationView:t.loginRequiredView(function(){
+	evaluationView:function(){
 			var t=Parse.Object.extend("Evaluation");
 			var n=Parse.User.current();
 			var r=new Parse.ACL;
@@ -152,7 +152,9 @@
 						})
 					}
 					else{
-						var s=i.toJSON().evaluations}document.getElementById("content").innerHTML=e.evaluationView(s);
+						var s=i.toJSON().evaluations
+						}
+						document.getElementById("content").innerHTML=e.evaluationView(s);
 						document.getElementById("evaluationForm-submit").value=i===undefined?"�銵典":"靽格銵典";
 						document.getElementById("evaluationForm").addEventListener("submit",function(){
 							for(var o=0;o<s.length;o++){
@@ -180,7 +182,7 @@
 
 					}
 				})
-		}),
+		},
   };
 	
 	var r = Parse.Router.extend({
