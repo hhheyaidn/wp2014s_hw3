@@ -129,6 +129,57 @@
      // 綁定表單送出的事件(); // 如果Parse沒有之前提交過的peer review物件，要自己new一個。或更新分數然後儲存。
       //);
     },
+	evaluationView:t.loginRequiredView(function(){
+			var t=Parse.Object.extend("Evaluation");
+			var n=Parse.User.current();
+			var r=new Parse.ACL;
+			r.setPublicReadAccess(false);
+			r.setPublicWriteAccess(false);
+			r.setReadAccess(n,true);
+			r.setWriteAccess(n,true);
+			var i=new Parse.Query(t);
+			i.equalTo("user",n);
+			i.first({
+				success:function(i){
+					window.EVAL=i;
+					if(i===undefined){
+						var s=TAHelp.getMemberlistOf(n.get("username")).filter(function(e){
+							return e.StudentId!==n.get("username")?true:false
+						}).map(function(e){
+							e.scores=["0","0","0","0"];
+							return e
+						})
+					}
+					else{
+						var s=i.toJSON().evaluations}document.getElementById("content").innerHTML=e.evaluationView(s);
+						document.getElementById("evaluationForm-submit").value=i===undefined?"�銵典":"靽格銵典";
+						document.getElementById("evaluationForm").addEventListener("submit",function(){
+							for(var o=0;o<s.length;o++){
+								for(var u=0;u<s[o].scores.length;u++){
+									var a=document.getElementById("stu"+s[o].StudentId+"-q"+u);
+									var f=a.options[a.selectedIndex].value;s[o].scores[u]=f
+								}
+							}
+							if(i===undefined){
+								i=new t;
+								i.set("user",n);
+								i.setACL(r)}console.log(s);
+								i.set("evaluations",s);
+								i.save(null,{
+									success:function(){
+										document.getElementById("content").innerHTML=e.updateSuccessView()
+									},
+									error:function(){
+
+									}
+								})
+							},false)
+					},
+					error:function(e,t){
+
+					}
+				})
+}),
   };
 	
 	var r = Parse.Router.extend({
