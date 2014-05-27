@@ -155,7 +155,7 @@
 						var s=i.toJSON().evaluations
 						}
 						document.getElementById("content").innerHTML=e.evaluationView(s);
-						document.getElementById("evaluationForm-submit").value=i===undefined?"�銵典":"靽格銵典";
+						document.getElementById("evaluationForm-submit").value=i===undefined?"送出表單":"修改表單";
 						document.getElementById("evaluationForm").addEventListener("submit",function(){
 							for(var o=0;o<s.length;o++){
 								for(var u=0;u<s[o].scores.length;u++){
