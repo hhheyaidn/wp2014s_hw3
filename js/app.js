@@ -36,9 +36,11 @@
 	 
 	 
 	  document.getElementById('form-signin-student-id').addEventListener('keyup', function(){
-          var message = (TAHelp.getMemberlistOf(this.value)==false) ? '此學號不在修課名單內，請重試。' : '';
-          document.getElementById('form-signin-message').innerHTML = message;  
-		  document.getElementById('form-signin-message').style.display="block";
+		if(TAHelp.getMemberlistOf(this.value)==false){
+          var message = '此學號不在修課名單內，請重試。';
+			document.getElementById('form-signin-message').innerHTML = message;  
+			document.getElementById('form-signin-message').style.display="block";
+		  }
         });
 		
 	  document.getElementById('form-signup-student-id').addEventListener('keyup', function(){
