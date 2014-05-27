@@ -79,8 +79,7 @@
       // What to do after signin / signup is successfully performed.
       var postAction = function(){
         handler.navbar();
-		handler.evaluationView();
-        window.location.hash = (redirect) ? redirect : '';
+        window.location.hash = t ? t : '';
       }
       
       if (currentUser) {
