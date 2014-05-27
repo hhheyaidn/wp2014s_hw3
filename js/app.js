@@ -33,6 +33,20 @@
 	  
      // 綁定登入表單的學號檢查事件(); // 可以利用TAHelp物件
      // 綁定註冊表單的學號檢查事件(); // 可以利用TAHelp物件
+	 
+	 
+	  document.getElementById('form-signin-student-id').addEventListener('keyup', function(){
+          var form-signin-student-id = document.getElementById('form-signin-student-id');
+          var message = (TAHelp.getMemberlistOf(form-signin-student-id.value)==false) ? '此學號不在修課名單內，請重試。' : '';
+          document.getElementById('form-signin-message').innerHTML = message;           
+        });
+		
+	  document.getElementById('form-signup-student-id').addEventListener('keyup', function(){
+          var form-signup-student-id = document.getElementById('form-signup-student-id');
+          var message = (TAHelp.getMemberlistOf(form-signup-student-id.value)==false) ? '此學號不在修課名單內，請重試。' : '';
+          document.getElementById('form-signup-message').innerHTML = message;           
+        });
+	 
      // 綁定註冊表單的密碼檢查事件(); // 參考上課範例
      // 綁定登入表單的登入檢查事件(); // 送出還要再檢查一次，這裡會用Parse.User.logIn
      // 綁定註冊表單的註冊檢查事件(); // 送出還要再檢查一次，這裡會用Parse.User.signUp和相關函數
@@ -61,8 +75,8 @@
           }); 
         });
         // Signup Form Password Match Check Binding.
-        document.getElementById('singupForm_password1').addEventListener('keyup', function(){
-          var singupForm_password = document.getElementById('singupForm_password');
+        document.getElementById('form-signup-password1').addEventListener('keyup', function(){
+          var singupForm_password = document.getElementById('form-signup-password');
           var message = (this.value !== singupForm_password.value) ? '密碼不一致，請再確認一次。' : '';
           document.getElementById('form-signup-message').innerHTML = message;           
         });
@@ -80,7 +94,7 @@
             },
             error: function(user, error) {
               // Show the error message somewhere and let the user try again.
-              document.getElementById('signupForm_message').innerHTML = error.message + '['+error.code+']';
+              document.getElementById('form-signup-message').innerHTML = error.message + '['+error.code+']';
             }
           });
         }, false);
