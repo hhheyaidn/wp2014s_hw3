@@ -36,6 +36,56 @@
      // 綁定註冊表單的密碼檢查事件(); // 參考上課範例
      // 綁定登入表單的登入檢查事件(); // 送出還要再檢查一次，這裡會用Parse.User.logIn
      // 綁定註冊表單的註冊檢查事件(); // 送出還要再檢查一次，這裡會用Parse.User.signUp和相關函數
+	  var currentUser = Parse.User.current();
+      // What to do after signin / signup is successfully performed.
+      var postAction = function(){
+        handlers.navbar();
+        window.location.hash = (redirect) ? redirect : '';
+      }
+      
+      if (currentUser) {
+        window.location.hash = '';
+      } else {
+        // Signin Function binding, provided by Parse SDK.        
+ 
+        document.getElementById('form-signin').addEventListener('submit', function(){
+          Parse.User.logIn(document.getElementById('form-signin-student-id').value,
+              document.getElementById('form-signin-password').value, {
+            success: function(user) {
+              // Do stuff after successful login.
+              postAction();
+            },
+            error: function(user, error) {
+              // The login failed. Check error to see why.
+            }
+          }); 
+        });
+        // Signup Form Password Match Check Binding.
+        document.getElementById('singupForm_password1').addEventListener('keyup', function(){
+          var singupForm_password = document.getElementById('singupForm_password');
+          var message = (this.value !== singupForm_password.value) ? '密碼不一致，請再確認一次。' : '';
+          document.getElementById('form-signup-message').innerHTML = message;           
+        });
+        // Signup Function binding, provided by Parse SDK.
+        document.getElementById('form-signup').addEventListener('submit', function(){
+          var user = new Parse.User();
+          user.set("username", document.getElementById('form-signup-student-id').value);
+          user.set("password", document.getElementById('form-signup-password').value);
+          user.set("email", document.getElementById('form-signup-email').value);
+ 
+          user.signUp(null, {
+            success: function(user) {
+              postAction();
+              // Hooray! Let them use the app now.
+            },
+            error: function(user, error) {
+              // Show the error message somewhere and let the user try again.
+              document.getElementById('signupForm_message').innerHTML = error.message + '['+error.code+']';
+            }
+          });
+        }, false);
+      } 
+	 
     },
     evaluationView: function(){
       // 基本上和上課範例購物車的函數很相似，這邊會用Parse DB
@@ -49,16 +99,14 @@
 	
 	var r = Parse.Router.extend({
 		routes: {
-			'': 'index',
+			'': 'login',
 			'peer-evaluation': 'evaluation',
 			'login/*redirect': 'login',
 		},
 		login: handler.loginView,
 		evaluation: handler.evaluationView,
 	});
- 
 	this.Router = new r();
 	Parse.history.start();
 	handler.navbar();
-	
 })();
