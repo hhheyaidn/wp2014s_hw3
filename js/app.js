@@ -36,14 +36,14 @@
 	 
 	 
 	  document.getElementById('form-signin-student-id').addEventListener('keyup', function(){
-          var form-signin-student-id = document.getElementById('form-signin-student-id');
-          var message = (TAHelp.getMemberlistOf(form-signin-student-id.value)==false) ? '此學號不在修課名單內，請重試。' : '';
+          var form_signin_student_id = document.getElementById('form-signin-student-id');
+          var message = (TAHelp.getMemberlistOf(form_signin_student_id.value)==false) ? '此學號不在修課名單內，請重試。' : '';
           document.getElementById('form-signin-message').innerHTML = message;           
         });
 		
 	  document.getElementById('form-signup-student-id').addEventListener('keyup', function(){
-          var form-signup-student-id = document.getElementById('form-signup-student-id');
-          var message = (TAHelp.getMemberlistOf(form-signup-student-id.value)==false) ? '此學號不在修課名單內，請重試。' : '';
+          var form_signup_student_id = document.getElementById('form-signup-student-id');
+          var message = (TAHelp.getMemberlistOf(form_signup_studen_id.value)==false) ? '此學號不在修課名單內，請重試。' : '';
           document.getElementById('form-signup-message').innerHTML = message;           
         });
 	 
