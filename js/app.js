@@ -17,6 +17,7 @@
 		return function(){
 			var t=Parse.User.current();
 			if(t){
+			alert(0);
 				e()
 			}
 			else{
