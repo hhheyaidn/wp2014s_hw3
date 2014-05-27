@@ -13,7 +13,7 @@
   //可選-編寫共用函數();
   
   var t={
-	loginReqiredView:function(e){
+	loginRequiredView:function(e){
 		return function(){
 			var t=Parse.User.current();
 			if(t){
