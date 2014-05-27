@@ -94,11 +94,12 @@
           Parse.User.logIn(document.getElementById('form-signin-student-id').value,
               document.getElementById('form-signin-password').value, {
             success: function(user) {
-			alert(222);
+			
               // Do stuff after successful login.
               postAction();
             },
             error: function(user, error) {
+			alert(222);
               // The login failed. Check error to see why.
             }
           }); 
