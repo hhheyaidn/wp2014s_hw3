@@ -155,6 +155,7 @@
 						var s=i.toJSON().evaluations
 						}
 					document.getElementById("content").innerHTML=templates.evaluationView(s);
+					alert(0);
 					document.getElementById("evaluationForm-submit").value=i===undefined?"送出表單":"修改表單";
 					document.getElementById("evaluationForm").addEventListener("submit",function(){
 						for(var o=0;o<s.length;o++){
@@ -166,7 +167,9 @@
 						if(i===undefined){
 							i=new t;
 							i.set("user",n);
-							i.setACL(r)}console.log(s);
+							i.setACL(r)
+							}
+							console.log(s);
 							i.set("evaluations",s);
 							i.save(null,{
 								success:function(){
