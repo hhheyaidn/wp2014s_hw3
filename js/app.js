@@ -131,6 +131,7 @@
 	 
     },
 	evaluationView:t.loginRequiredView(function(){
+	alert(2);
 			var t=Parse.Object.extend("Evaluation");
 			var n=Parse.User.current();
 			var r=new Parse.ACL;
@@ -155,7 +156,7 @@
 						var s=i.toJSON().evaluations
 						}
 					document.getElementById("content").innerHTML=templates.evaluationView(s);
-					alert(0);
+					alert(1);
 					document.getElementById("evaluationForm-submit").value=i===undefined?"送出表單":"修改表單";
 					document.getElementById("evaluationForm").addEventListener("submit",function(){
 						for(var o=0;o<s.length;o++){
