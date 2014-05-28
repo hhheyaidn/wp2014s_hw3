@@ -45,7 +45,7 @@
 		window.location.hash="login/"
 		})
     },
-    loginView: function(redirect){
+    loginView: function(){
 	  document.getElementById('content').innerHTML = templates.loginView();
 	  
      // 綁定登入表單的學號檢查事件(); // 可以利用TAHelp物件
@@ -153,7 +153,7 @@
 						var s=i.toJSON().evaluations
 					}
 					document.getElementById("content").innerHTML=e.evaluationView(s);
-					document.getElementById("evaluationForm-submit").value=i===undefined?"提交表單":"修改表單";
+					document.getElementById("evaluationForm-submit").value=i===undefined?"�銵典":"靽格銵典";
 					document.getElementById("evaluationForm").addEventListener("submit",function(){
 						for(var o=0;o<s.length;o++){
 							for(var u=0;u<s[o].scores.length;u++){
@@ -181,6 +181,7 @@
 				}
 			})
 		}),
+	
   };
 	
 	var r = Parse.Router.extend({
