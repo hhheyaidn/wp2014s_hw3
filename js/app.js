@@ -96,7 +96,7 @@
               // The login failed. Check error to see why.
             }
           }); 
-        });
+        }, false);
         // Signup Form Password Match Check Binding.
         document.getElementById('form-signup-password1').addEventListener('keyup', function(){
           var singupForm_password = document.getElementById('form-signup-password');
