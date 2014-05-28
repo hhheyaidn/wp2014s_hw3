@@ -97,6 +97,8 @@
     }),
     loginView: function (redirect) {
 	
+	     document.getElementById("content").innerHTML = templates.loginView();
+	
 	  var message = '此學號不在修課名單內，請重試。';
 	  document.getElementById('form-signin-message').innerHTML = message;
 	  document.getElementById('form-signup-message').innerHTML = message;
@@ -130,7 +132,7 @@
         return BOOL;
       }
 
-      document.getElementById("content").innerHTML = templates.loginView();
+ 
       document.getElementById("form-signin-student-id").addEventListener("keyup", function () {
         showMessage('form-signin-message', function(){return checkVaildStudentID("form-signin-student-id")}
             , 'The student is not one of the class students.');
