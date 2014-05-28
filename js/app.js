@@ -79,7 +79,7 @@
       // What to do after signin / signup is successfully performed.
       var postAction = function(){
         handler.navbar();
-        window.location.hash = t ? t : '';
+        window.location.hash = t?t:"";
       }
       
       if (currentUser) {
@@ -92,7 +92,6 @@
             success: function(templates) {
               // Do stuff after successful login.
               postAction();
-			  console.log(user);
             },
             error: function(user, error) {
               // The login failed. Check error to see why.
