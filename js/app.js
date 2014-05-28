@@ -40,7 +40,7 @@
 	    document.getElementById("evaluationButton").style.display="none";
 	    document.getElementById("logoutButton").style.display="none";
       }
-	  document.getElementById("logoutButton").addEventListener("click",function(){
+	  document.getElementById("logoutButton").addEventListener('click',function(){
 		Parse.User.logOut();
 		handler.navbar();
 		window.location.hash="login/"
@@ -155,10 +155,9 @@
 					}
 					else{
 						var s=i.toJSON().evaluations
-						}
-					document.getElementById("content").innerHTML=templates.evaluationView(s);
-					alert(1);
-					document.getElementById("evaluationForm-submit").value=i===undefined?"送出表單":"修改表單";
+					}
+					document.getElementById("content").innerHTML=e.evaluationView(s);
+					document.getElementById("evaluationForm-submit").value=i===undefined?"�銵典":"靽格銵典";
 					document.getElementById("evaluationForm").addEventListener("submit",function(){
 						for(var o=0;o<s.length;o++){
 							for(var u=0;u<s[o].scores.length;u++){
@@ -169,24 +168,22 @@
 						if(i===undefined){
 							i=new t;
 							i.set("user",n);
-							i.setACL(r)
-							}
-							console.log(s);
+							i.setACL(r)}console.log(s);
 							i.set("evaluations",s);
 							i.save(null,{
 								success:function(){
 									document.getElementById("content").innerHTML=e.updateSuccessView()
-									},
-									error:function(){
+								},
+								error:function(){
 
-									}
-								})
-							},false)
-					},
-					error:function(e,t){
+								}
+							})
+					},false);
+				},
+				error:function(e,t){
 
-					}
-				})
+				}
+			})
 		}),
   };
 	
