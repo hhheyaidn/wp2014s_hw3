@@ -12,14 +12,14 @@
   //可選-編寫共用函數();
   
   var t={
-	loginRequiredView:function(templates){
+	loginRequiredView:function(aaa){
 		return function(){
 				var current=Parse.User.current();
 				if(current){
-					templates()
+					aaa();
 				}
 				else{
-					window.location.hash="login/"+window.location.hash
+					window.location.hash="login/"+window.location.hash;
 				}
 			}
 		}
