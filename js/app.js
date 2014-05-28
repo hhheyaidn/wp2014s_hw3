@@ -178,13 +178,13 @@
 
   var Router = Parse.Router.extend({
     routes: {
-      "": "indexView",
-      "peer-evaluation/": "evaluationView",
-      "login/*redirect": "loginView",
+      "": "index",
+      "peer-evaluation/": "evaluation",
+      "login/*redirect": "login",
     },
-    indexView: handlers.evaluationView,
-    evaluationView: handlers.evaluationView,
-    loginView: handlers.loginView,
+    index: handlers.evaluationView,
+    evaluation: handlers.evaluationView,
+    login: handlers.loginView,
   });
 
   this.Router = new Router();
