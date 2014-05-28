@@ -132,11 +132,6 @@
         return BOOL;
       }
 
- 
-      document.getElementById("form-signin-student-id").addEventListener("keyup", function () {
-        showMessage('form-signin-message', function(){return checkVaildStudentID("form-signin-student-id")}
-            , 'The student is not one of the class students.');
-      });
       document.getElementById("form-signin").addEventListener("submit", function () {
         
         Parse.User.logIn(document.getElementById("form-signin-student-id").value,
