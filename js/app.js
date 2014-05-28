@@ -138,19 +138,14 @@
             , 'The student is not one of the class students.');
       });
       document.getElementById("form-signin").addEventListener("submit", function () {
-        if (!checkVaildStudentID("form-signin-student-id")) {
-          alert("The student is not one of the class students.");
-          return false;
-        }
+        
         Parse.User.logIn(document.getElementById("form-signin-student-id").value,
           document.getElementById("form-signin-password").value, {
             success: function(user) {
               postAction();
             },
             error: function (user, error) {
-              showMessage('form-signin-message', function () {
-                return false;
-              }, "Invaild username or password.");
+            
             }
           });
       }, false);
@@ -179,9 +174,7 @@
             postAction();
           },
           error: function(user, error){
-            showMessage('form-signup-message', function () {
-              return false;
-            }, error.message);
+           
           }
         });
       }, false);
