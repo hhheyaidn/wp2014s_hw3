@@ -15,15 +15,15 @@
   var t={
 	loginRequiredView:function(e){
 		return function(){
-			var current=Parse.User.current();
-			if(current){
-				e()
-			}
-			else{
-				window.location.hash="login/"+window.location.hash
+				var current=Parse.User.current();
+				if(current){
+					e()
+				}
+				else{
+					window.location.hash="login/"+window.location.hash
+				}
 			}
 		}
-	}
 	};
   
   var handler = {
@@ -89,7 +89,7 @@
         document.getElementById('form-signin').addEventListener('submit', function(){
           Parse.User.logIn(document.getElementById('form-signin-student-id').value,
               document.getElementById('form-signin-password').value, {
-            success: function(templates) {
+            success: function(currentUser) {
               // Do stuff after successful login.
               postAction();
             },
