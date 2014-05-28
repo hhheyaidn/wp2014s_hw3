@@ -86,7 +86,6 @@
         window.location.hash = '';
       } else {
         // Signin Function binding, provided by Parse SDK.        
- alert(0); 
         document.getElementById('form-signin').addEventListener('submit', function(){
           Parse.User.logIn(document.getElementById('form-signin-student-id').value,
               document.getElementById('form-signin-password').value, {
@@ -157,7 +156,7 @@
 						var s=i.toJSON().evaluations
 					}
 					document.getElementById("content").innerHTML=e.evaluationView(s);
-					document.getElementById("evaluationForm-submit").value=i===undefined?"�銵典":"靽格銵典";
+					document.getElementById("evaluationForm-submit").value=i===undefined?"提交表單":"修改表單";
 					document.getElementById("evaluationForm").addEventListener("submit",function(){
 						for(var o=0;o<s.length;o++){
 							for(var u=0;u<s[o].scores.length;u++){
