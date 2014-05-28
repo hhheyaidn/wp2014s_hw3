@@ -96,6 +96,7 @@
               postAction();
             },
             error: function(user, error) {
+			alert(2);
               // The login failed. Check error to see why.
             }
           }); 
