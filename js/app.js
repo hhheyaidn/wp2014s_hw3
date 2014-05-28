@@ -86,12 +86,13 @@
         window.location.hash = '';
       } else {
         // Signin Function binding, provided by Parse SDK.        
- alert(0);
+ alert(0); 
         document.getElementById('form-signin').addEventListener('submit', function(){
           Parse.User.logIn(document.getElementById('form-signin-student-id').value,
               document.getElementById('form-signin-password').value, {
             success: function(user) {
               // Do stuff after successful login.
+			  alert(1);
               postAction();
             },
             error: function(user, error) {
