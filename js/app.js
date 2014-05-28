@@ -89,11 +89,11 @@
         document.getElementById('form-signin').addEventListener('submit', function(){
           Parse.User.logIn(document.getElementById('form-signin-student-id').value,
               document.getElementById('form-signin-password').value, {
-            success: function(currentUser) {
+            success: function(templates) {
               // Do stuff after successful login.
               postAction();
             },
-            error: function(user, error) {
+            error: function(templates, error) {
               // The login failed. Check error to see why.
             }
           }); 
@@ -190,7 +190,7 @@
 			'peer-evaluation': 'evaluation',
 			'login/*redirect': 'login',
 		},
-		index: handler.loginView,
+		index: handler.evaluationView,
 		login: handler.loginView,
 		evaluation: handler.evaluationView,
 	});
