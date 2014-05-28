@@ -140,7 +140,6 @@
               postAction();
             },
             error: function (user, error) {
-            
             }
           });
       }, false);
@@ -168,8 +167,7 @@
           success: function(user){
             postAction();
           },
-          error: function(user, error){
-           
+          error: function(user, error){ 
           }
         });
       }, false);
