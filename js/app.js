@@ -11,7 +11,7 @@
 
   //可選-編寫共用函數();
   
-  var t={
+  var commons={
 	loginRequiredView:function(aaa){
 		return function(){
 				var current=Parse.User.current();
@@ -128,7 +128,7 @@
       } 
 	 
     },
-	evaluationView:t.loginRequiredView(function(){
+	evaluationView:commons.loginRequiredView(function(){
 			var t=Parse.Object.extend("Evaluation");
 			var n=Parse.User.current();
 			var r=new Parse.ACL;
