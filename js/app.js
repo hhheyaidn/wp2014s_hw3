@@ -45,7 +45,7 @@
 		window.location.hash="login/"
 		})
     },
-    loginView: function(t){
+    loginView: function(redirect){
 	  document.getElementById('content').innerHTML = templates.loginView();
 	  
      // 綁定登入表單的學號檢查事件(); // 可以利用TAHelp物件
@@ -78,7 +78,7 @@
       // What to do after signin / signup is successfully performed.
       var postAction = function(){
         handler.navbar();
-        window.location.hash = t?t:"";
+        window.location.hash = (redirect)? redirect :''
       }
       
       if (currentUser) {
@@ -88,11 +88,11 @@
         document.getElementById('form-signin').addEventListener('submit', function(){
           Parse.User.logIn(document.getElementById('form-signin-student-id').value,
               document.getElementById('form-signin-password').value, {
-            success: function(templates) {
+            success: function(user) {
               // Do stuff after successful login.
               postAction();
             },
-            error: function(templates, error) {
+            error: function(user, error) {
               // The login failed. Check error to see why.
             }
           }); 
