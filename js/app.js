@@ -15,8 +15,8 @@
   var t={
 	loginRequiredView:function(e){
 		return function(){
-			var t=Parse.User.current();
-			if(t){
+			var current=Parse.User.current();
+			if(current){
 				e()
 			}
 			else{
@@ -91,11 +91,9 @@
               document.getElementById('form-signin-password').value, {
             success: function(user) {
               // Do stuff after successful login.
-			  alert(1);
               postAction();
             },
             error: function(user, error) {
-			alert(2);
               // The login failed. Check error to see why.
             }
           }); 
