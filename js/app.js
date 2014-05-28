@@ -1,6 +1,5 @@
 (function(){
-  Parse.initialize("265RdtKjvGmVHSwHQXDXv2XXw7aGP5BfG175jjha",
-      "RNHeGkUvVEc8DUMJCbtbpCPUOdxWbtuKB7TkhChZ");
+  Parse.initialize("265RdtKjvGmVHSwHQXDXv2XXw7aGP5BfG175jjha","RNHeGkUvVEc8DUMJCbtbpCPUOdxWbtuKB7TkhChZ");
 	  
   //編譯template engine函數();
   
@@ -13,11 +12,11 @@
   //可選-編寫共用函數();
   
   var t={
-	loginRequiredView:function(e){
+	loginRequiredView:function(templates){
 		return function(){
 				var current=Parse.User.current();
 				if(current){
-					e()
+					templates.evaluationView()
 				}
 				else{
 					window.location.hash="login/"+window.location.hash
