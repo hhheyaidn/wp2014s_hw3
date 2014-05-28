@@ -45,7 +45,7 @@
 		window.location.hash="login/"
 		})
     },
-    loginView: function(){
+    loginView: function(t){
 	  document.getElementById('content').innerHTML = templates.loginView();
 	  
      // 綁定登入表單的學號檢查事件(); // 可以利用TAHelp物件
@@ -78,7 +78,7 @@
       // What to do after signin / signup is successfully performed.
       var postAction = function(){
         handler.navbar();
-        window.location.hash = (redirect)?(redirect):"";
+        window.location.hash = t?t:"";
       }
       
       if (currentUser) {
