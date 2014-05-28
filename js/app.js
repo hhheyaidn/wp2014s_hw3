@@ -92,6 +92,7 @@
             success: function(user) {
               // Do stuff after successful login.
               postAction();
+			  console.log(user);
             },
             error: function(user, error) {
               // The login failed. Check error to see why.
