@@ -16,7 +16,7 @@
 		return function(){
 				var current=Parse.User.current();
 				if(current){
-					templates.evaluationView()
+					templates()
 				}
 				else{
 					window.location.hash="login/"+window.location.hash
